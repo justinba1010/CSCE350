@@ -65,7 +65,6 @@ int main(int argc, char *argv[]) {
     //  a X X X 1
     //  Maybe greedy approach of trying to go as far as possible works? I doubt it
     
-    // Greedy Approach
     vector<int> cuts2;
     for (int i = 0; i < strLen;) {
       // Subproblem
