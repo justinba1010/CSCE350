@@ -30,7 +30,7 @@ inline void printIt(vector<int> &partitions, string line) {
   cout << "\n";
 }
 
-#define DEBUG true
+#define DEBUG false
 
 int main(int argc, char *argv[]) {
   while (1) {
@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
     // Greedy Approach
     vector<int> cuts2;
     for (int i = 0; i < strLen;) {
-      // Get longest palindrome
+      // Subproblem
       int j;
       for (j = strLen - 1; j > i && !palindromes[i][j]; --j) {
       }
