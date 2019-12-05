@@ -54,39 +54,21 @@ int main(int argc, char *argv[]) {
         palindromes[start][end] = line[start] == line[end] && palindromes[start+1][end-1];
       }
     }
-    // Done precomputing palindromes
-    // Have matrix filled with all palindromes 
-    // I think finding disjoint set forest is the best here
-    // example: abba
-    //    a b b a
-    //  a 1 0 0 1
-    //  b X 1 1 0
-    //  b X X 1 0
-    //  a X X X 1
-    //  Maybe greedy approach of trying to go as far as possible works? I doubt it
-    
-    vector<int> cuts2;
+
+    // Greedy Solution 1
+   
+    vector<int> cuts3;
     for (int i = 0; i < strLen;) {
       // Subproblem
       int j;
       for (j = strLen - 1; j > i && !palindromes[i][j]; --j) {
       }
-      cuts2.push_back(++j);
+      cuts3.push_back(++j);
       if (DEBUG) cout << "j: " << j << endl;
       i = j;
     }
-    printIt(cuts2, line);
-    if (DEBUG) {
-    cout << "\t";
-    for (int i = 0; i < strLen; ++i) cout << i << " ";
-    cout << "\n";
-    for (int i = 0; i < strLen; ++i) {
-      cout << i << "\t";
-      for (int j = 0; j < strLen; ++j) {
-        cout << palindromes[i][j] << (j + 1 == strLen ? "" : "|");
-      }
-      cout << endl;
-    }
-    }
+    printIt(cuts3, line);
+
+    // Dynamically Greedy 
   }
 }
